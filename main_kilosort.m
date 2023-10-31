@@ -1,4 +1,4 @@
-%% you need to change most of the paths in this block
+%% STEP1: CHANGE THESE TO MATCH PATHS
 
 addpath(genpath('E:\GitHub\Kilosort_NBits')) % path to kilosort folder
 addpath('E:\GitHub\npy-matlab\npy-matlab') % for converting to Phy
@@ -16,7 +16,9 @@ ops.fs = 30000;
 run(fullfile(pathToYourConfigFile, 'config_30k.m'))
 ops.fproc   = fullfile(rootH, 'temp_wh.dat'); % proc file on a fast SSD
 ops.chanMap = fullfile(pathToYourConfigFile, chanMapFile);
-%% this block runs all the steps of the algorithm
+
+%% STEP2: RUN THIS FOR SORTING
+
 fprintf('Looking for data inside %s \n', rootZ)
 
 % is there a channel map file in this folder?
@@ -59,11 +61,7 @@ rez = set_cutoff(rez);
 
 fprintf('found %d good units \n', sum(rez.good>0))
 
-%% write to Phy
-fprintf('Saving results to Phy  \n')
-rezToPhy(rez, rootZ);
-
-%% if you want to save the results to a Matlab file...
+%% STEP3: Write to MATLAB file
 
 % discard features in final rez file (too slow to save)
 rez.cProj = [];
@@ -86,3 +84,8 @@ end
 fprintf('Saving final results in rez2  \n')
 fname = fullfile(rootZ, 'rez2.mat');
 save(fname, 'rez', '-v7.3');
+
+
+%% [OPTIONAL] write to Phy
+fprintf('Saving results to Phy  \n')
+rezToPhy(rez, rootZ);
