@@ -61,6 +61,10 @@ rez = set_cutoff(rez);
 
 fprintf('found %d good units \n', sum(rez.good>0))
 
+%% [OPTIONAL] write to Phy
+fprintf('Saving results to Phy  \n')
+rezToPhy(rez, rootZ);
+
 %% STEP3: Write to MATLAB file
 
 % discard features in final rez file (too slow to save)
@@ -86,6 +90,3 @@ fname = fullfile(rootZ, 'rez2.mat');
 save(fname, 'rez', '-v7.3');
 
 
-%% [OPTIONAL] write to Phy
-fprintf('Saving results to Phy  \n')
-rezToPhy(rez, rootZ);
