@@ -1,10 +1,10 @@
 %% STEP1: CHANGE THESE TO MATCH PATHS
 
-addpath(genpath('E:\GitHub\Kilosort_NBits')) % path to kilosort folder
-addpath('E:\GitHub\npy-matlab\npy-matlab') % for converting to Phy
-rootZ = 'E:\ks_test'; % the raw data binary file is in this folder
-rootH = 'C:\ks_test'; % path to temporary binary file (same size as data, should be on fast SSD)
-pathToYourConfigFile = 'E:\ks_test'; % take from Github folder and put it somewhere else (together with the master_file)
+addpath(genpath('D:\github\Kilosort_NBits')) % path to kilosort folder
+addpath('D:\github\npy-matlab\npy-matlab') % for converting to Phy
+rootZ = 'D:\KilosortData\TestData3'; % the raw data binary file is in this folder
+rootH = 'C:\'; % path to temporary binary file (same size as data, should be on fast SSD)
+pathToYourConfigFile = 'D:\KilosortData\TestData3'; % take from Github folder and put it somewhere else (together with the master_file)
 chanMapFile = 'chanMap_tetrode_30k.mat';
 
 
