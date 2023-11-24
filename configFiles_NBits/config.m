@@ -1,9 +1,11 @@
+% set in main_kilosort-DK
 % ops.chanMap             = 'E:\ks_test\chanMap_tetrode_30k.mat';
 % ops.chanMap = 1:ops.Nchan; % treated as linear probe if no chanMap file
 
 % sample rate
 % ops.fs = 30000;  
 
+%%
 % frequency for high pass filtering (150)
 ops.fshigh = 150;   
 

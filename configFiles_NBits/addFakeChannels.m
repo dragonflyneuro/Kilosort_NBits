@@ -6,11 +6,11 @@ nChOriginal = 1; % how many channels in original data?
 %%
 fid = fopen(fN, 'r');
 d = fread(fid,[nChOriginal,inf],"int16");
-% d(nChOriginal+1:4,:) = 0;
-d = repmat(d,4/nChOriginal,1);
+d(nChOriginal+1:4,:) = 0;
+% d = repmat(d,4/nChOriginal,1);
 fclose(fid);
 
-fid = fopen([fN(1:end-4) '_kilosortAugmented.bin'], 'w');
+fid = fopen([fN(1:end-4) '_kilosortDummied.bin'], 'w');
 if fid < 0
     warning('Data could not be saved')
     return;
