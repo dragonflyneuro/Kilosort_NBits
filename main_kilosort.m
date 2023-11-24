@@ -12,7 +12,7 @@ binaryFile = '2020-10-28_10-42-20_INTERLACED_kilosortDummied.bin';
 
 ops.trange = [0 Inf]; % time range to sort
 
-actuallyOnlySingleChannelFlag = 0;
+actuallyOnlySingleChannelFlag = 1;
 ops.NchanTOT    = 4; % total number of channels in your recording
 ops.fs = 60000; % sampling rate of data
 
@@ -64,6 +64,12 @@ if actuallyOnlySingleChannelFlag == 0
     % final splits by amplitudes
     rez = splitAllClusters(rez, 0);
 else
+    % final splits by SVD
+    rez = splitAllClusters_single(rez, 1);
+    
+    % final splits by amplitudes
+    rez = splitAllClusters_single(rez, 0);
+
     rez.Wphy = cat(1, zeros(1+rez.ops.nt0min, size(rez.W,2), 3), rez.W); % for Phy, we need to pad the spikes with zeros so the spikes are aligned to the center of the window
 end
 
